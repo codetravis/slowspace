@@ -1,0 +1,52 @@
+<head>
+  <title>To Do List</title>
+</head>
+
+<body>
+  <div class="container">
+  <header>
+    <h1>Hashing a game out of scribbles</h1>
+
+  <form class="new-ship">
+    <input type="text" name="name" placeholder="Type to add new ship"/>
+    <select name="hull" id="hull">
+      {{#each shipyard}}
+        {{> hull}}
+      {{/each}}
+    </select>
+  </form>
+  </header>
+  {{> hullinfo}}
+  <ul>
+    {{#each ships}}
+      {{> ship}}
+    {{/each}}
+  </ul>
+  </div>
+</body>
+
+<template name="ship">
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span class="name">{{name}}</span>
+  </li>
+</template>
+
+<template name="hull">
+  <option value="{{name}}">{{name}}</option>
+</template>
+
+<template name="hullinfo">
+  {{#with getinfo}}
+  <div class="container" id="hull_info">
+    <label>Hull Name: <p id="hull_name">{{name}}</p></label>
+    <label>Hard Points: <p id="hull_hardpoints">{{hardpoints}}</p></label>
+    <label>Speed: <p id="hull_speed">{{speed}}</p></label>
+    <label>Armor: <p id="hull_armor">{{armor}}</p></label>
+    <label>Shield: <p id="hull_shield">{{shield}}</p></label>
+    <label>Battery: <p id="hull_battery">{{battery}}</p></label>
+    <label>Generator: <p id="hull_generator">{{generator}}</p></label>
+  </div>
+  {{/with}}
+</template>

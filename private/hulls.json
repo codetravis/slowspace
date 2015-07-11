@@ -1,0 +1,29 @@
+{
+  "corvette" : {
+    "name": "Corvette",
+    "hardpoints": "2",
+    "armor": "10",
+    "speed": "2",
+    "shield": "5",
+    "battery": "20",
+    "generator": "10"
+  },
+  "frigate": {
+    "name": "Frigate",
+    "hardpoints": "2",
+    "armor": "13",
+    "speed": "3",
+    "shield": "10",
+    "battery": "30",
+    "generator": "20"
+  },
+  "freighter": {
+    "name": "Freighter",
+    "hardpoints": "1",
+    "armor": "5",
+    "speed": "1",
+    "shield": "20",
+    "battery": "20",
+    "generator": "20"
+  }
+}
