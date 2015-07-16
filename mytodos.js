@@ -5,8 +5,7 @@ Hulls = new Mongo.Collection("hulls");
 Turrets = new Mongo.Collection("turrets");
 
 if (Meteor.isClient) {
-    Session.set("data", {});
-    Template.body.helpers({
+  Template.body.helpers({
       ships: function () {
         return Ships.find({}, {sort: {createdAt: -1}} );
       },
@@ -23,17 +22,17 @@ if (Meteor.isClient) {
 
   Template.hullinfo.helpers({
     getinfo: function () {
-    return Hulls.findOne({name: Session.get("selected_name")});;
+      return Hulls.findOne({name: Session.get("selected_name")});
     }
   });
 
   Template.body.events({
     "submit .new-ship": function (event) {
       var name = event.target.name.value;
-      var type = "";
+      var hull = event.target.hull_name.value;
       Ships.insert({
             name: name,
-            type: type
+            hull: hull
       });
       // clear form
       event.target.name.value = "";
@@ -66,6 +65,5 @@ if (Meteor.isServer) {
         //console.log(parsed_json[hull]);
         Hulls.insert(parsed_json[hull]);
       }
-      console.log(Hulls.find({}, {sort: {name: 1}}).fetch());
   });
 }

@@ -10,13 +10,18 @@
   <form class="new-ship">
     <input type="text" name="name" placeholder="Type to add new ship"/>
     <select name="hull" id="hull">
+      <option value="">Select a Hull</option>
       {{#each shipyard}}
         {{> hull}}
       {{/each}}
     </select>
+    <div>
+      <button type="submit" id="add_ship">Add Ship</button>
+    </div>
+    {{> hullinfo}}
   </form>
   </header>
-  {{> hullinfo}}
+
   <ul>
     {{#each ships}}
       {{> ship}}
@@ -29,7 +34,7 @@
   <li class="{{#if checked}}checked{{/if}}">
     <button class="delete">&times;</button>
     <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-    <span class="name">{{name}}</span>
+    <span class="name">{{name}}</span> - <span class="name">{{hull}}</span>
   </li>
 </template>
 
@@ -40,13 +45,13 @@
 <template name="hullinfo">
   {{#with getinfo}}
   <div class="container" id="hull_info">
-    <label>Hull Name: <p id="hull_name">{{name}}</p></label>
-    <label>Hard Points: <p id="hull_hardpoints">{{hardpoints}}</p></label>
-    <label>Speed: <p id="hull_speed">{{speed}}</p></label>
-    <label>Armor: <p id="hull_armor">{{armor}}</p></label>
-    <label>Shield: <p id="hull_shield">{{shield}}</p></label>
-    <label>Battery: <p id="hull_battery">{{battery}}</p></label>
-    <label>Generator: <p id="hull_generator">{{generator}}</p></label>
+    <label>Hull Name: <input type="text" disabled="true" id="hull_name" name="hull_name" value="{{name}}"/></label><br/>
+    <label>Hard Points: <input type="text" disabled="true" id="hull_hardpoints" name="hardpoints" value="{{hardpoints}}"/></label><br/>
+    <label>Speed: <input type="text" disabled="true"  id="hull_speed" name="speed" value="{{speed}}"/></label><br/>
+    <label>Armor: <input type="text" disabled="true"  id="hull_armor" name="armor" value="{{armor}}"/></label><br/>
+    <label>Shield: <input type="text" disabled="true"  id="hull_shield" name="shield" value="{{shield}}"/></label><br/>
+    <label>Battery: <input type="text" disabled="true"  id="hull_battery" name="battery" value="{{battery}}"/></label><br/>
+    <label>Generator: <input type="text" disabled="true"  id="hull_generator" name="generator" value="{{generator}}"/></label><br/>
   </div>
   {{/with}}
 </template>
