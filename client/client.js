@@ -1,5 +1,5 @@
 
-  Template.body.helpers({
+  Template.home.helpers({
       ships: function () {
         return Ships.find({}, {sort: {createdAt: -1}} );
       },
@@ -20,7 +20,7 @@
     }
   });
 
-  Template.body.events({
+  Template.home.events({
     "submit #new-ship": function (event) {
       var ship_name = event.target.name.value;
       console.log(ship_name);
@@ -32,7 +32,8 @@
               armor: event.target.hull_armor.value,
               battery: event.target.hull_battery.value,
               generator: event.target.hull_generator.value,
-              hardpoints: event.target.hull_hardpoints.value
+              hardpoints: event.target.hull_hardpoints.value,
+              charge: 0
         });
       }
       // clear form

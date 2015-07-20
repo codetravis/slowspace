@@ -2,7 +2,7 @@
   <title>To Do List</title>
 </head>
 
-<body>
+<template name="home">
   <div class="container">
   <header>
     <h1>Hashing a game out of scribbles</h1>
@@ -28,13 +28,13 @@
     {{/each}}
   </ul>
   </div>
-</body>
+</template>
 
 <template name="ship">
   <li class="{{#if checked}}checked{{/if}}">
     <button class="delete">&times;</button>
     <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-    <span class="name">{{name}}</span> - <span class="name">{{hull}}</span>
+    <a class="single_ship" id="{{_id}}" href="/show_ship/{{_id}}"><span class="name">{{name}}</span></a> - <span class="name">{{hull}}</span>
   </li>
 </template>
 
@@ -54,4 +54,27 @@
     <label>Generator: <input type="text" disabled="true"  id="hull_generator" name="generator" value="{{generator}}"/></label><br/>
   </div>
   {{/with}}
+</template>
+
+<template name="show_ship">
+  <div class="container">
+    <h2>{{name}}</h2>
+    <div class="ship_data">
+      <label>Hull Name: <p id="hull_name">{{hull}}</p></label>
+      <label>Speed: <p id="speed">{{speed}}</p></label>
+      <label>Armor: <p id="armor">{{armor}}</p></label>
+      <label>Shield: <p id="shield">{{shield}}</p></label>
+      <label>Battery: <p id="battery">{{battery}}</p></label>
+      <label>Generator: <p id="generator">{{generator}}</p></label>
+    </div>
+    {{#each turrets}}
+      {{> turret}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="turret">
+  <div class="container">
+
+  </div>
 </template>
