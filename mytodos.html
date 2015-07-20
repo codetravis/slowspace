@@ -7,7 +7,7 @@
   <header>
     <h1>Hashing a game out of scribbles</h1>
 
-  <form class="new-ship">
+  <form class="new-ship" id="new-ship">
     <input type="text" name="name" placeholder="Type to add new ship"/>
     <select name="hull" id="hull">
       <option value="">Select a Hull</option>
@@ -16,7 +16,7 @@
       {{/each}}
     </select>
     <div>
-      <button type="submit" id="add_ship">Add Ship</button>
+      <button type="submit" id="add_ship" form="new-ship">Add Ship</button>
     </div>
     {{> hullinfo}}
   </form>
