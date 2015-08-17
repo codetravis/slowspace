@@ -1,80 +1,20 @@
 <head>
-  <title>To Do List</title>
+  <title>Dummy Game</title>
 </head>
 
-<template name="home">
+<template name="game">
+  <h1>Game</h1>
   <div class="container">
-  <header>
-    <h1>Hashing a game out of scribbles</h1>
-
-  <form class="new-ship" id="new-ship">
-    <input type="text" name="name" placeholder="Type to add new ship"/>
-    <select name="hull" id="hull">
-      <option value="">Select a Hull</option>
-      {{#each shipyard}}
-        {{> hull}}
-      {{/each}}
-    </select>
-    <div>
-      <button type="submit" id="add_ship" form="new-ship">Add Ship</button>
+    <div id="hud">
+      <ul>
+        {{#each ships}}
+          {{> ship_action}}
+        {{/each}}
+      </ul>  
     </div>
-    {{> hullinfo}}
-  </form>
-  </header>
+    <div class="info" id="scaninfo">
 
-  <ul>
-    {{#each ships}}
-      {{> ship}}
-    {{/each}}
-  </ul>
-  </div>
-</template>
-
-<template name="ship">
-  <li class="{{#if checked}}checked{{/if}}">
-    <button class="delete">&times;</button>
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-    <a class="single_ship" id="{{_id}}" href="/show_ship/{{_id}}"><span class="name">{{name}}</span></a> - <span class="name">{{hull}}</span>
-  </li>
-</template>
-
-<template name="hull">
-  <option value="{{name}}">{{name}}</option>
-</template>
-
-<template name="hullinfo">
-  {{#with getinfo}}
-  <div class="container" id="hull_info">
-    <label>Hull Name: <input type="text" disabled="true" id="hull_name" name="hull_name" value="{{name}}"/></label><br/>
-    <label>Hard Points: <input type="text" disabled="true" id="hull_hardpoints" name="hardpoints" value="{{hardpoints}}"/></label><br/>
-    <label>Speed: <input type="text" disabled="true"  id="hull_speed" name="speed" value="{{speed}}"/></label><br/>
-    <label>Armor: <input type="text" disabled="true"  id="hull_armor" name="armor" value="{{armor}}"/></label><br/>
-    <label>Shield: <input type="text" disabled="true"  id="hull_shield" name="shield" value="{{shield}}"/></label><br/>
-    <label>Battery: <input type="text" disabled="true"  id="hull_battery" name="battery" value="{{battery}}"/></label><br/>
-    <label>Generator: <input type="text" disabled="true"  id="hull_generator" name="generator" value="{{generator}}"/></label><br/>
-  </div>
-  {{/with}}
-</template>
-
-<template name="show_ship">
-  <div class="container">
-    <h2>{{name}}</h2>
-    <div class="ship_data">
-      <label>Hull Name: <p id="hull_name">{{hull}}</p></label>
-      <label>Speed: <p id="speed">{{speed}}</p></label>
-      <label>Armor: <p id="armor">{{armor}}</p></label>
-      <label>Shield: <p id="shield">{{shield}}</p></label>
-      <label>Battery: <p id="battery">{{battery}}</p></label>
-      <label>Generator: <p id="generator">{{generator}}</p></label>
     </div>
-    {{#each turrets}}
-      {{> turret}}
-    {{/each}}
   </div>
 </template>
 
-<template name="turret">
-  <div class="container">
-
-  </div>
-</template>

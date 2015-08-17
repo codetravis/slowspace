@@ -1,0 +1,49 @@
+
+<template name="show_ship">
+  <div class="container">
+    <h2>{{name}}</h2>
+    <div class="ship_data">
+      <label>Hull Name: <span id="hull_name">{{hull}}</span></label><br/>
+      <label>Speed: <span id="speed">{{speed}}</span></label><br/>
+      <label>Armor: <span id="armor">{{armor}}</span></label><br/>
+      <label>Shield: <span id="shield">{{shield}}</span></label><br/>
+      <label>Battery: <span id="battery">{{battery}}</span></label><br/>
+      <label>Generator: <span id="generator">{{generator}}</span></label><br/>
+    </div>
+    <button type="button" id="add_turret">Add Turret</button>
+    {{#each turrets}}
+      {{> turret}}
+    {{/each}}
+    <button type="button" id="shipyard">Back to Shipyard</button>
+  </div>
+</template>
+
+<template name="turret">
+  <div class="row-select">
+    <p>{{name}}</p>
+  </div>
+</template>
+
+<template name="add_turret">
+  <div class="container">
+    <input type="hidden" name="ship_id" id="ship_id" value="{{_id}}"/>
+    {{#each armory}}
+      {{> hardpoint}}
+    {{/each}}
+  </div>
+  <button type="button" id="exit_armory">Exit Armory</button>
+</template>
+
+<template name="hardpoint">
+  <div class="block-select">
+    <form id="{{code}}" method="post" action="">
+    <label>Part Name: </label><input class="name" name="name" value="{{name}}" /><br/>
+    <label>Part Code: </label><input class="code" name="code" value="{{code}}" /><br/>
+    <label>Power: </label><input class="power" name="power" value="{{power}}" /><br/>
+    <label>Battery: </label><input class="battery" name="battery" value="{{battery}}" /><br/>
+    <label>Type: </label><input class="type" name="type" value="{{type}}" /><br/>
+    <label>Range: </label><input class="range" name="range" value="{{range}}" /><br/>
+    <button type="submit" form="{{code}}">Add {{name}}</button>
+    </form>
+  </div>
+</template>

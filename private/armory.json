@@ -1,0 +1,26 @@
+{
+  "laser" : {
+    "name": "Single Laser",
+    "code": "L1S",
+    "power": "2",
+    "battery": "10",
+    "type": "energy",
+    "range": "3"
+  },
+  "ion" : {
+    "name": "Single Ion",
+    "code": "I1S",
+    "power": "2",
+    "battery": "10",
+    "type": "ion",
+    "range": "3"
+  },
+  "blaster" : {
+    "name": "Single Blaster",
+    "code": "B1S",
+    "power": "2",
+    "battery": "10",
+    "type": "energy",
+    "range": "2"
+  }
+}

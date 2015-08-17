@@ -1,1 +1,14 @@
 /* CSS declarations go here */
+
+body label {
+  display: inline-block;
+  width: 5em;
+}
+
+.block-select {
+  padding: .2em 0 .2em 0;
+}
+
+.block-select input {
+  border: none;
+}

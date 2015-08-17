@@ -1,0 +1,29 @@
+
+<template name="ship_action">
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <a class="single_ship" id="{{_id}}" href="/show_ship_action/{{_id}}"><span class="name">{{name}}</span></a> - <span class="name">{{hull}}</span>
+  </li>
+</template>
+
+<template name="show_ship_action">
+  <div class="container">
+    <h2>{{name}}</h2>
+    <div class="ship_data">
+      <label>Hull Name: <span id="hull_name">{{hull}}</span></label><br/>
+      <label>Speed: <span id="speed">{{speed}}</span></label><br/>
+      <label>Armor: <span id="armor">{{armor}}</span></label><br/>
+      <label>Shield: <span id="shield">{{shield}}</span></label><br/>
+      <label>Battery: <span id="battery">{{battery}}</span></label><br/>
+      <label>Generator: <span id="generator">{{generator}}</span></label><br/>
+    </div>
+    {{#each turrets}}
+      {{> turret}}
+    {{/each}}
+    <button type="button" id="move">Move</button>
+    <button type="button" id="attack">Attack</button>
+    <button type="wait" id="wait">Wait</button>
+    <button type="button" id="game">Back to Game</button>
+  </div>
+</template>
